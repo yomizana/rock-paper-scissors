@@ -9,7 +9,20 @@ function computerPlay() {
     return 'Rock';
 }
 
+function playerInputValidation(playerInput) {
+    let playerSelection = playerInput.toLowerCase();
+
+    if (playerSelection == 'rock') return 'Rock';
+    if (playerSelection == 'paper') return 'Paper';
+    if (playerSelection == 'scissors') return 'Scissors';
+    return null;
+}
+
 function playRound(playerSelection, computerSelection) {
+    let playerSelection = playerInputValidation(playerSelection);
+
+    if (playerSelection === null) return 'Invalid input';
+
     let winStatement = `You Win! ${playerSelection} beats ${computerSelection}.`;
     let loseStatement = `You Lose! ${computerSelection} beats ${playerSelection}.`;
     let tieStatement = `It's a tie!`;
