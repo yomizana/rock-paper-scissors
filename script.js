@@ -7,16 +7,18 @@ function computerPlay() {
 }
 
 function playerInputValidation(playerInput) {
+    if (playerInput === null) return 'cancel';
+
     playerInput = playerInput.toLowerCase();
 
     if (playerInput == 'rock') return 'Rock';
     if (playerInput == 'paper') return 'Paper';
     if (playerInput == 'scissors') return 'Scissors';
-    return null;
+    return 'invalid input';
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === null) return 'Invalid input';
+    if (playerSelection === 'invalid input') return 'Invalid input';
 
     if (playerSelection == 'Rock') {
         if (computerSelection == 'Scissors') return 'win';
@@ -45,6 +47,8 @@ function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt('What do you choose? Rock, paper or scissors?', '');
         playerSelection = playerInputValidation(playerSelection);
+
+        if (playerSelection == 'cancel') return console.log('GAME CANCELED. RELOAD TO PLAY AGAIN');
 
         let computerSelection = computerPlay();
         let roundResult = playRound(playerSelection, computerSelection);
