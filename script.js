@@ -16,8 +16,6 @@ function playerInputValidation(playerInput) {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerInputValidation(playerSelection);
-
     if (playerSelection === null) return 'Invalid input';
 
     if (playerSelection == 'Rock') {
@@ -46,6 +44,8 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt('What do you choose? Rock, paper or scissors?', '');
+        playerSelection = playerInputValidation(playerSelection);
+
         let computerSelection = computerPlay();
         let roundResult = playRound(playerSelection, computerSelection);
 
@@ -56,26 +56,27 @@ function game() {
         if (roundResult == 'win') {
             roundNumber++
             playerScore++;
-            console.log(`Round: ${roundNumber}`);
+            console.log(`~ Round: ${roundNumber} ~`);
             console.log(winStatement);
             console.log(`Player Score: ${playerScore}`);
             console.log(`Computer Score: ${computerScore}`);
-        } else if (roundResult == 'tie') {
+        } else if (roundResult == 'lose') {
             roundNumber++
             computerScore++;
-            console.log(`Round: ${roundNumber}`);
+            console.log(`~ Round: ${roundNumber} ~`);
             console.log(loseStatement);
             console.log(`Player Score: ${playerScore}`);
             console.log(`Computer Score: ${computerScore}`);
         } else {
             roundNumber++
-            console.log(`Round: ${roundNumber}`);
+            console.log(`~ Round: ${roundNumber} ~`);
             console.log(tieStatement);
             console.log(`Player Score: ${playerScore}`);
             console.log(`Computer Score: ${computerScore}`);
         }
     }
 
+    console.log('GAME OVER');
     if (playerScore > computerScore) return console.log('Congratulations! You Won!');
     if (playerScore < computerScore) return console.log('You Lost');
     return console.log('It\s a tie.');
