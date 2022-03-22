@@ -67,12 +67,15 @@ function game() {
             console.log(loseStatement);
             console.log(`Player Score: ${playerScore}`);
             console.log(`Computer Score: ${computerScore}`);
-        } else {
+        } else if (roundResult == 'tie') {
             roundNumber++
             console.log(`~ Round: ${roundNumber} ~`);
             console.log(tieStatement);
             console.log(`Player Score: ${playerScore}`);
             console.log(`Computer Score: ${computerScore}`);
+        } else {
+            console.log('Your input was invalid, make sure to enter a valid word.');
+            i--;
         }
     }
 
