@@ -10,11 +10,11 @@ function computerPlay() {
 }
 
 function playerInputValidation(playerInput) {
-    let playerSelection = playerInput.toLowerCase();
+    let playerInput = playerInput.toLowerCase();
 
-    if (playerSelection == 'rock') return 'Rock';
-    if (playerSelection == 'paper') return 'Paper';
-    if (playerSelection == 'scissors') return 'Scissors';
+    if (playerInput == 'rock') return 'Rock';
+    if (playerInput == 'paper') return 'Paper';
+    if (playerInput == 'scissors') return 'Scissors';
     return null;
 }
 
