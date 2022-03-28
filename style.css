@@ -14,6 +14,13 @@ body {
     box-shadow: 0 0 8px black;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px
+}
+
 .results {
     background-color: black;
 }
