@@ -80,10 +80,12 @@ function game(playerChoice) {
     }
 
     let paraRound = document.querySelector('#round');
+    paraRound.textContent = `Round: ${roundCount}`;
+
     let paraScore = document.querySelector('#score');
     paraScore.textContent = `Scores: ${playerScore} | ${computerScore}`;
+    
     let paraMessage = document.querySelector('#message');
-    paraRound.textContent = `Round: ${roundCount}`;
 
     if (roundCount < 5) {
         paraMessage.textContent = message;
