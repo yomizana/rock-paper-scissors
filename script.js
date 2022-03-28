@@ -51,7 +51,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function resetScore() {
+function resetScores() {
     playerScore = 0;
     computerScore = 0;
     roundCount = 0;
