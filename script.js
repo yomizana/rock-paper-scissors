@@ -2,19 +2,36 @@ let playerScore = 0;
 let computerScore = 0;
 let roundCount = 0;
 
+const playerControls = document.querySelector('.player-controls');
+const playerButtons = playerControls.querySelectorAll('button');
+const computerControls = document.querySelector('.computer-controls');
+const computerButtons = computerControls.querySelectorAll('button');
+
+playerButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        selectButton(playerButtons, button.dataset.number);
+        game(button.textContent);
+    });
+});
+
 function computerChoice() {
     let randomNumber = Math.floor((Math.random() * 3));
 
-    console.log(randomNumber);
+    selectButton(computerButtons, randomNumber);
 
     if (randomNumber == 0) return 'Rock';
     if (randomNumber == 1) return 'Paper';
     return 'Scissors';
 }
 
-function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection, computerSelection);
+function selectButton(buttonCategory, index) {
+     buttonCategory.forEach((button) => {
+         button.classList.remove('selected');
+    });
+    buttonCategory[index].classList.add('selected');
+}
 
+function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'Rock') {
         if (computerSelection == 'Scissors') return 'win';
         if (computerSelection == 'Paper') return 'lose';
@@ -86,11 +103,3 @@ function game(playerChoice) {
     }
 
 }
-
-let rockButton = document.querySelector('#rock');
-let paperButton = document.querySelector('#paper');
-let scissorsButton = document.querySelector('#scissors');
-
-rockButton.addEventListener('click', () => game('Rock'));
-paperButton.addEventListener('click', () => game('Paper'));
-scissorsButton.addEventListener('click', () => game('Scissors'));
