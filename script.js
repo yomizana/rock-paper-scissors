@@ -1,24 +1,15 @@
 function computerPlay() {
-    let randomNumber = Math.floor((Math.random() * 100));
+    let randomNumber = Math.floor((Math.random() * 3));
 
-    if (randomNumber >= 66) return 'Scissors';
-    if (randomNumber >= 33) return 'Paper';
+    if (randomNumber = 0) return 'Scissors';
+    if (randomNumber = 1) return 'Paper';
     return 'Rock';
-}
-
-function playerInputValidation(playerInput) {
-    if (playerInput === null) return 'cancel';
-
-    playerInput = playerInput.toLowerCase();
-
-    if (playerInput == 'rock') return 'Rock';
-    if (playerInput == 'paper') return 'Paper';
-    if (playerInput == 'scissors') return 'Scissors';
-    return 'invalid input';
 }
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'invalid input') return 'Invalid input';
+
+    console.log(playerSelection, computerSelection);
 
     if (playerSelection == 'Rock') {
         if (computerSelection == 'Scissors') return 'win';
@@ -39,54 +30,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let roundNumber = 0;
+let rockButton = document.querySelector('#rock');
+let paperButton = document.querySelector('#paper');
+let scissorsButton = document.querySelector('#scissors');
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('What do you choose? Rock, paper or scissors?', '');
-        playerSelection = playerInputValidation(playerSelection);
+let compchoice = 'Rock';
 
-        if (playerSelection == 'cancel') return console.log('GAME CANCELED. RELOAD TO PLAY AGAIN');
-
-        let computerSelection = computerPlay();
-        let roundResult = playRound(playerSelection, computerSelection);
-
-        let winStatement = `You Win! ${playerSelection} beats ${computerSelection}.`;
-        let loseStatement = `You Lose! ${computerSelection} beats ${playerSelection}.`;
-        let tieStatement = `It's a tie!`;
-
-        if (roundResult == 'win') {
-            roundNumber++
-            playerScore++;
-            console.log(`~ Round: ${roundNumber} ~`);
-            console.log(winStatement);
-            console.log(`Player Score: ${playerScore}`);
-            console.log(`Computer Score: ${computerScore}`);
-        } else if (roundResult == 'lose') {
-            roundNumber++
-            computerScore++;
-            console.log(`~ Round: ${roundNumber} ~`);
-            console.log(loseStatement);
-            console.log(`Player Score: ${playerScore}`);
-            console.log(`Computer Score: ${computerScore}`);
-        } else if (roundResult == 'tie') {
-            roundNumber++
-            console.log(`~ Round: ${roundNumber} ~`);
-            console.log(tieStatement);
-            console.log(`Player Score: ${playerScore}`);
-            console.log(`Computer Score: ${computerScore}`);
-        } else {
-            console.log('Your input was invalid, make sure to enter a valid word.');
-            i--;
-        }
-    }
-
-    console.log('GAME OVER');
-    if (playerScore > computerScore) return console.log('Congratulations! You Won!');
-    if (playerScore < computerScore) return console.log('You Lost');
-    return console.log('It\s a tie.');
-}
-
-// game();
+rockButton.addEventListener('click', () => game('Rock'));
+paperButton.addEventListener('click', () => game('Paper'));
+scissorsButton.addEventListener('click', () => game('Scissors'));
