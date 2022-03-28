@@ -54,6 +54,7 @@ function playRound(playerSelection, computerSelection) {
 function resetScore() {
     playerScore = 0;
     computerScore = 0;
+    roundCount = 0;
 }
 
 function game(playerChoice) {
@@ -77,28 +78,28 @@ function game(playerChoice) {
             roundCount++;
             message = `It's a tie! You both picked ${playerChoice}.`;
     }
-    let para = document.querySelector('p');
-    para.style.color = 'white';
-    para.style.fontSize = '24px';
+
+    let paraRound = document.querySelector('#round');
+    let paraScore = document.querySelector('#score');
+    paraScore.textContent = `Scores: ${playerScore} | ${computerScore}`;
+    let paraMessage = document.querySelector('#message');
+    paraRound.textContent = `Round: ${roundCount}`;
 
     if (roundCount < 5) {
-        para.textContent = message;
+        paraMessage.textContent = message;
     } else {
         if (playerScore > computerScore) {
             message = 'Congratulations, you won the game!';
-            para.textContent = message;
-            roundCount = 0;
-            resetScore();
+            paraMessage.textContent = message;
+            resetScores()
         } else if (playerScore < computerScore) {
             message = 'Game Over! You lost the game.';
-            para.textContent = message;
-            roundCount = 0;
-            resetScore();
+            paraMessage.textContent = message;
+            resetScores();
         } else {
             message = 'It\'s a tie!';
-            para.textContent = message;
-            roundCount = 0;
-            resetScore();
+            paraMessage.textContent = message;
+            resetScores();
         }
     }
 
