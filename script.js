@@ -89,4 +89,4 @@ function game() {
     return console.log('It\s a tie.');
 }
 
-game();
+// game();
