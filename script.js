@@ -91,7 +91,7 @@ function game(playerChoice) {
     let paraMessage = document.querySelector('#message');
     paraMessage.textContent = message;
 
-    let gameOver = document.querySelector('#game-over')
+    let gameOver = document.querySelector('#game-over');
 
     if (roundCount == 5) {
         if (playerScore > computerScore) {
@@ -103,7 +103,7 @@ function game(playerChoice) {
             paraMessage.textContent = message;
             resetScores();
         } else {
-            gameOver.textContent = 'The game is a tie!'
+            gameOver.textContent = 'The game is a tie!';
             paraMessage.textContent = message;
             resetScores();
         }
