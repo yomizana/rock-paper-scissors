@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(31, 42, 71);
+    background-color: #023a47;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-    background-color: rgb(44, 60, 104);
+    background-color: #045165;
     color: white;
     text-align: center;
     border-bottom: solid 2px black;
@@ -21,29 +21,52 @@ body {
     align-items: center;
     gap: 15px;
     margin-top: 10px;
+    text-align: center;
+}
+
+.content p {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    font-size: 24px;
 }
 
 .results {
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     padding: 5px 10px;
     background-color: rgb(32, 25, 49);
-    width: 80%;
+    color: white;
+    height: 200px;
+    font-size: 24px;
+    width: 50%;
+    height: 200px;
+}
+
+.boxes {
+    display: flex;
+}
+
+.box {
+    flex: 1;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #655068;
 }
 
 button {
-    flex: auto;
-    background-color: teal;
+    background-color: #387777;
     border-style: none;
     border-radius: 8px;
     padding: 50px;
     font-size: 30px;
 }
 
-.selected {
-    background-color: rgb(86, 86, 177);
+.player-controls > button:hover {
+    background-color: #4ba1a1;
 }
 
-p {
-    color: white;
-    font-size: 24px;
+.selected {
+    background-color: #4ba1a1;
 }
